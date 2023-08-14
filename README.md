@@ -59,7 +59,7 @@
 4. Скопируйте файлы `docker-compose.production.yml` и `.env` в директорию `taski/` на сервере:
 
     ```
-    scp -i PATH_TO_SSH_KEY/SSH_KEY_NAME docker-compose.production.yml YOUR_USERNAME@SERVER_IP_ADDRESS:/home/YOUR_USERNAME/kittygram/docker-compose.production.yml
+    scp -i PATH_TO_SSH_KEY/SSH_KEY_NAME docker-compose.production.yml YOUR_USERNAME@SERVER_IP_ADDRESS:/home/YOUR_USERNAME/taski/docker-compose.production.yml
     ```
     
     Где:
@@ -77,9 +77,9 @@
 6. Выполните миграции, соберите статические файлы бэкенда и скопируйте их в `/backend_static/static/`:
 
     ```
-    sudo docker-compose -f /home/YOUR_USERNAME/kittygram/docker-compose.production.yml exec backend python manage.py migrate
-    sudo docker-compose -f /home/YOUR_USERNAME/kittygram/docker-compose.production.yml exec backend python manage.py collectstatic
-    sudo docker-compose -f /home/YOUR_USERNAME/kittygram/docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
+    sudo docker-compose -f /home/YOUR_USERNAME/taski/docker-compose.production.yml exec backend python manage.py migrate
+    sudo docker-compose -f /home/YOUR_USERNAME/taski/docker-compose.production.yml exec backend python manage.py collectstatic
+    sudo docker-compose -f /home/YOUR_USERNAME/taski/docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
     ```
 
 7. Откройте конфигурационный файл Nginx в редакторе nano:
